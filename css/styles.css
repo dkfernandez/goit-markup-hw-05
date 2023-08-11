@@ -8,6 +8,7 @@
   --cloud: #f4f4fd;
   --cornflower: #e7e9fc;
   --green: #31d0aa;
+  --dairy: #fcfcfc;
 }
 
 h1,
@@ -166,6 +167,31 @@ link {
 .nav-menu .item:not(:last-child),
 .contacts-menu .item:not(:last-child) {
   margin-right: 50px;
+}
+
+.navigation .active:hover::after,
+.navigation .active:focus::after {
+  border: 2px solid var(--oceancolor);
+  background-color: var(--oceancolor);
+  width: 100%;
+}
+
+.navigation .active::after {
+  content: "";
+  border: 2px solid var(--oceancolor);
+  border-radius: 2px;
+  background-color: var(--oceancolor);
+  height: 4px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+}
+
+.navigation .active,
+.navigation:hover,
+.navigation:focus {
+  color: var(--oceancolor, #404bbf);
 }
 
 .what-we-do {
@@ -580,8 +606,8 @@ link {
 
 .modal-close:hover,
 .modal-close:focus {
-  background-color: var(--ocean);
-  color: var(--white);
+  background-color: var(--oceancolor);
+  color: var(--whitecolor);
 }
 
 .is-hidden {
