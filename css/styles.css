@@ -98,6 +98,8 @@ link {
   border-radius: 4px;
   font-size: 16px;
   letter-spacing: 0.03em;
+  transition: color 250ms ease-in-out, background-color 250ms ease-in-out,
+    box-shadow 250ms ease-in-out;
 }
 
 .button.primary {
@@ -150,6 +152,7 @@ link {
   display: block;
   padding-top: 32px;
   padding-bottom: 31px;
+  transition: color 250ms ease-in-out;
 }
 
 .page-header {
@@ -169,14 +172,30 @@ link {
   margin-right: 50px;
 }
 
-.navigation .active:hover::after,
-.navigation .active:focus::after {
+.page:hover::after,
+.page:focus::after {
   border: 2px solid var(--oceancolor);
   background-color: var(--oceancolor);
   width: 100%;
 }
 
-.navigation .active::after {
+.page {
+  position: relative;
+}
+
+.page::after {
+  content: "";
+  background-color: var(--oceancolor);
+  border-radius: 2px;
+  height: 4px;
+  width: 0%;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  transition: width 250ms ease-in-out, background-color 250ms ease-in-out;
+}
+
+.page.current::after {
   content: "";
   border: 2px solid var(--oceancolor);
   border-radius: 2px;
@@ -186,12 +205,6 @@ link {
   position: absolute;
   left: 0;
   bottom: -2px;
-}
-
-.navigation .active,
-.navigation:hover,
-.navigation:focus {
-  color: var(--oceancolor, #404bbf);
 }
 
 .what-we-do {
@@ -218,10 +231,13 @@ link {
   flex-basis: calc(100% / 3 - 30px);
   margin-left: 30px;
   margin-top: 30px;
+  transition: box-shadow 250ms ease-in-out ;
 }
 
 .project-card:hover {
-  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08), 0px 1px 1px 0px rgba(46, 47, 66, 0.16), 0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 
 .cover-wrap {
@@ -241,7 +257,7 @@ link {
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0.32px;
-  transform: translateY(100%);
+  transform: translateY(101%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -327,8 +343,8 @@ link {
 .button.filter.current {
   background-color: var(--oceancolor);
   color: var(--cloud);
-  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
-    0px 1px 2px rgba(0, 0, 0, 0.08) rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12),
+    0px 2px 1px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.1);
 }
 
 .button.primary:hover,
@@ -449,6 +465,7 @@ link {
   justify-content: center;
   background-color: var(--iriscolor);
   color: var(--cloud);
+  transition: bacgkround-color 250ms ease-in-out;
 }
 
 .team-social-link:hover,
@@ -489,6 +506,7 @@ link {
   justify-content: center;
   align-items: center;
   color: #8e8f99;
+  transition: color 250ms ease-in-out, border-color 250ms ease-in-out;
 }
 
 .partners .link:hover,
@@ -547,6 +565,7 @@ link {
   align-items: center;
   justify-content: center;
   color: var(--cloud);
+  transition: background-color 250ms ease-in-out;
 }
 
 .social-footer .icon {
@@ -607,14 +626,14 @@ link {
 
 .modal-close {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 24px;
+  right: 24px;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
 
   background-color: var(--cornflower, #e7e9fc);
   color: var(--navyblue);
